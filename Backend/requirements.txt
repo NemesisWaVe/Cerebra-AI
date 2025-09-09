@@ -1,0 +1,58 @@
+# This file lists all dependencies for the Cerebra AI backend and the ComfyUI service.
+
+# ----------------------------------------
+# Cerebra AI - FastAPI Backend Dependencies
+# ----------------------------------------
+
+# Web server
+fastapi
+uvicorn[standard]
+
+# Database
+sqlalchemy
+python-dateutil
+
+# AI & Machine Learning (excluding ComfyUI-specific torch)
+ollama
+openai-whisper
+
+# Document & File Handling
+pypdf2
+python-magic
+Pillow
+PyMuPDF
+
+# Video Processing
+ffmpeg-python
+opencv-python-headless
+
+# Configuration & Utilities
+pydantic
+pydantic-settings
+requests
+python-dotenv
+aiofiles
+colorama
+
+# ----------------------------------------
+# ComfyUI - Image Generation Dependencies
+# ----------------------------------------
+# Note: ComfyUI requires specific torch versions. 
+# It's often best to install these in a separate virtual environment for ComfyUI.
+
+torch
+torchvision
+torchaudio
+torchsde
+transformers>=4.28.1
+numpy>=1.25.0
+scipy
+safetensors>=0.4.2
+einops
+sentencepiece
+tokenizers>=0.13.3
+aiohttp
+yarl
+pyyaml
+tqdm
+psutil
