@@ -1,6 +1,6 @@
 # 🤖 Cerebra AI - An Intelligent Multi-Modal Assistant
 
-![Cerebra AI Screenshot](https://raw.githubusercontent.com/NemesisWaVe/Cerebra-AI/frontend/assets/Cerebra-Screenshot.png)
+![Cerebra AI Screenshot](https://raw.githubusercontent.com/NemesisWaVe/Cerebra-AI/main/Frontend/assets/Cerebra-Screenshot.png)
 
 <p align="center">
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
