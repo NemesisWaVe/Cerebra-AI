@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import CerebraHeader from './CerebraHeader';
-import Chat from './Chat'; // Import the new Chat component
+import Chat from './chat'; 
 import ProcessingStatus from './ProcessingStatus';
 import InputArea from './InputArea';
 import { useTheme } from '@/hooks/use-theme';
@@ -161,5 +161,6 @@ const ScrollableChatLayout = ({ messages, isProcessing, currentTool, onSendMessa
     </div>
   );
 };
+
 
 export default ScrollableChatLayout;
