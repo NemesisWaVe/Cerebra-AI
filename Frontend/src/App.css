@@ -1,0 +1,21 @@
+/* Cerebra AI Application Styles */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: url('./assets/cerebra-hero.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+#root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, hsl(222 47% 6% / 0.95), hsl(222 47% 4% / 0.98));
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}

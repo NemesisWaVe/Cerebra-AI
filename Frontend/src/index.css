@@ -1,0 +1,281 @@
+@import 'pixel-retroui/dist/index.css';
+@import 'pixel-retroui/dist/fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme with cream yellow chat area matching retro UI */
+    --background: 0 0% 88%; /* Soft glass gray for main bg */
+    --foreground: 0 0% 20%;
+
+    --card: 48 58% 88%; /* Cream yellow for chat area #fff6c7 */
+    --card-foreground: 0 0% 15%;
+
+    --popover: 48 58% 88%;
+    --popover-foreground: 0 0% 15%;
+
+    --primary: 262 83% 45%; /* Purple for user messages #5f0ed8 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%; /* Light gray bubbles for AI */
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 48 25% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 194 100% 70%; /* Cyan accent #7ae4ff */
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 50% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 262 83% 45%; /* Purple borders */
+    --input: 0 0% 96%; /* Lighter gray for input background */
+    --ring: 262 83% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Keep your existing dark theme */
+    --background: 222 47% 11%; /* #0f172a */
+    --foreground: 210 40% 98%; /* #f8fafc */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 96%; /* #e2e8f0 */
+    --primary-foreground: 222 47% 11%;
+    --secondary: 215 28% 27%; /* #334155 */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 215 19% 47%; /* #64748b */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 51%; /* #dc2626 */
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 28% 27%;
+    --input: 215 28% 27%;
+    --ring: 210 40% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Minecraft', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      system-ui, sans-serif;
+    overflow: hidden; /* Prevent page scrolling */
+    height: 100vh; /* Ensure body takes full height */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Minecraft', sans-serif;
+  }
+
+  code,
+  pre {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  #root {
+    width: 100%;
+    height: 100vh; /* Ensure root takes full viewport height */
+    position: relative;
+    overflow: hidden; /* Prevent scrolling on root */
+  }
+
+  /* Light theme background - soft glass gray */
+  .light #root {
+    background: linear-gradient(
+      135deg,
+      hsl(0 0% 86%) 0%,
+      hsl(0 0% 88%) 25%,
+      hsl(0 0% 85%) 50%,
+      hsl(0 0% 87%) 75%,
+      hsl(0 0% 86%) 100%
+    );
+  }
+
+  .dark #root {
+    background: linear-gradient(
+      135deg,
+      hsl(222 47% 6%) 0%,
+      hsl(280 50% 8%) 25%,
+      hsl(220 50% 8%) 50%,
+      hsl(190 50% 8%) 75%,
+      hsl(222 47% 4%) 100%
+    );
+  }
+
+  #root::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Light theme overlay - very subtle */
+  .light #root::before {
+    background: radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 246, 199, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(95, 14, 216, 0.03) 0%,
+        transparent 50%
+      );
+    backdrop-filter: blur(0.5px);
+  }
+
+  .dark #root::before {
+    background: radial-gradient(
+        circle at 20% 50%,
+        hsl(220 100% 50% / 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        hsl(280 100% 50% / 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        hsl(190 100% 50% / 0.05) 0%,
+        transparent 50%
+      );
+    backdrop-filter: blur(2px);
+  }
+}
+
+@layer components {
+  /* Enhanced Glassmorphism utilities */
+  .glass-card {
+    @apply backdrop-blur-xl border rounded-3xl shadow-2xl;
+  }
+
+  .light .glass-card {
+    /* Cream yellow glass card matching retro UI #fff6c7 */
+    background: rgba(255, 246, 199, 0.9) !important;
+    border: 2px solid rgba(95, 14, 216, 0.3) !important;
+    box-shadow: 0 12px 40px rgba(122, 228, 255, 0.15),
+      0 4px 12px rgba(95, 14, 216, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(20px);
+  }
+
+  .dark .glass-card {
+    @apply bg-black/20 border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Enhanced glass-subtle for lighter, softer appearance */
+  .glass-subtle {
+    @apply backdrop-blur-lg border rounded-lg;
+  }
+
+  .light .glass-subtle {
+    /* Light cream glass elements */
+    background: rgba(255, 246, 199, 0.8);
+    border: 1px solid rgba(95, 14, 216, 0.4); /* Increased border visibility */
+    box-shadow: 0 4px 16px rgba(122, 228, 255, 0.12),
+      0 2px 8px rgba(95, 14, 216, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+  }
+
+  .dark .glass-subtle {
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Gradient text for Cerebra AI title */
+  .gradient-text {
+    background-image: linear-gradient(
+      to right,
+      hsl(262 83% 45%),
+      hsl(194 100% 70%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Upload zone styling */
+  .upload-zone {
+    @apply glass-subtle transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .light .upload-zone {
+    border: 2px dashed rgba(95, 14, 216, 0.3);
+    background: rgba(255, 246, 199, 0.6);
+  }
+
+  .light .upload-zone.dragover {
+    border-color: hsl(262 83% 45%);
+    background: rgba(255, 246, 199, 0.8);
+  }
+
+  .dark .upload-zone {
+    border: 2px dashed rgba(129, 140, 248, 0.3);
+  }
+
+  .dark .upload-zone.dragover {
+    border-color: hsl(210 40% 96%);
+    background: rgba(129, 140, 248, 0.1);
+  }
+
+  /* FIXED input styling for light theme */
+  .light input[type='text'] {
+    background: hsl(var(--input)) !important;
+    color: hsl(var(--card-foreground)) !important;
+    border: 2px solid hsl(var(--primary)) !important;
+    box-shadow: 3px 3px 0px hsl(var(--accent)) !important;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .light input[type='text']:focus {
+    box-shadow: 4px 4px 0px hsl(var(--accent)) !important;
+    transform: translate(-1px, -1px);
+  }
+
+  /* Enhanced button styling */
+  .light button {
+    backdrop-filter: blur(12px);
+  }
+
+  /* Feature tags in header */
+  .light .feature-tag {
+    background: rgba(255, 246, 199, 0.8) !important;
+    color: rgba(95, 14, 216, 0.9) !important;
+    border: 1px solid rgba(95, 14, 216, 0.2);
+  }
+
+  /* Status indicators */
+  .light .status-indicator {
+    background: rgba(255, 246, 199, 0.9);
+    border: 1px solid rgba(95, 14, 216, 0.2);
+  }
+}
