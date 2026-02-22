@@ -1,4 +1,4 @@
-# 🤖 Cerebra AI - An Intelligent Multi-Modal Assistant
+# Cerebra AI - An Intelligent Multi-Modal Assistant
 
 ![Cerebra AI Screenshot](https://raw.githubusercontent.com/NemesisWaVe/Cerebra-AI/main/Frontend/src/assets/Cerebra-Screenshot.png)
 
@@ -16,25 +16,25 @@ Cerebra AI is a powerful, locally-runnable, full-stack application that function
 
 ## ✨ Features
 
-- **🧠 Intelligent Tool Routing**: A central AI router analyzes user prompts to dynamically select the best tool for the job (e.g., document analysis, image generation, code execution).
-- **📄 Document Analysis**: Upload and ask questions about PDF documents. The AI extracts and reasons over the text content.
-- **🎨 Image Generation**: Integrates with a running **ComfyUI** instance to generate high-quality images from text prompts.
-- **👁️ Vision Analysis**: Upload images and ask questions about their content.
-- **🎬 Video & Audio Transcription**: Provides transcription and analysis for video and audio files using OpenAI's Whisper model.
-- **💻 Safe Code Execution**: A dedicated plugin allows the AI to write, execute, and debug Python code in a sandboxed environment.
-- **💾 Persistent Chat History**: Conversations are automatically saved and can be revisited, managed, and deleted through the UI.
-- **🎨 Modern Frontend**: A beautiful and responsive UI built with Tailwind CSS, shadcn/ui, and pixel-retroui, featuring both light and dark themes.
+- **Intelligent Tool Routing**: A central AI router analyzes user prompts to dynamically select the best tool for the job (e.g., document analysis, image generation, code execution).
+- **Document Analysis**: Upload and ask questions about PDF documents. The AI extracts and reasons over the text content.
+- **Image Generation**: Integrates with a running **ComfyUI** instance to generate high-quality images from text prompts.
+- **Vision Analysis**: Upload images and ask questions about their content.
+- **Video & Audio Transcription**: Provides transcription and analysis for video and audio files using OpenAI's Whisper model.
+- **Safe Code Execution**: A dedicated plugin allows the AI to write, execute, and debug Python code in a sandboxed environment.
+- **Persistent Chat History**: Conversations are automatically saved and can be revisited, managed, and deleted through the UI.
+- **Modern Frontend**: A beautiful and responsive UI built with Tailwind CSS, shadcn/ui, and pixel-retroui, featuring both light and dark themes.
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 Cerebra AI operates with a decoupled frontend and backend, communicating via a REST API. The backend's AI Router is the core component that delegates tasks to various plugins and external services.
 
 ```mermaid
 graph TD
     A["Frontend (React + Vite)"] -->|REST API| B(FastAPI Backend);
-    B --> C{"🧠 AI Router"};
+    B --> C{"AI Router"};
     C --> D[Plugins & Services];
     subgraph D
         direction LR
@@ -48,14 +48,14 @@ graph TD
 ```
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework**: FastAPI
 - **Database**: SQLAlchemy with SQLite
 - **LLM Integration**: Ollama
 - **Audio Transcription**: OpenAI Whisper
-- **Image Generation**: ComfyUI (via API)
+- **Image Generation**: ComfyUI (via headless API)
 - **Configuration**: Pydantic
 - **Core Language**: Python
 
@@ -68,7 +68,7 @@ graph TD
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to set up and run the Cerebra AI project on your local machine.
 
@@ -141,6 +141,6 @@ Once both the backend and frontend servers are running, simply open your web bro
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the APACHE 2.0 License. See the `LICENSE` file for details.
